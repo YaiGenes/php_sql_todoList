@@ -19,7 +19,7 @@
     <br>
     <input type="password" name="password" placeholder="Pcr.2390'cda">
     <br>
-    <input type="submit" name="submit" value="SignUp">
+    <input type="submit" name="submitting" value="SignUp">
   </form>
 
   <a href="signup.php">If you are not registered you can go back clicking here to SignUp</a>

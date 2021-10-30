@@ -2,6 +2,7 @@
   session_start();
   include_once "includes/dbh.inc.php";
   $info = $_SESSION["info"];
+  $username = $_SESSION["username"]
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +19,7 @@
   <div>
     <?=$info?>
   </div>
+  <h3>Welcome <?=$username?>!</h3>
 
   <?php
       
@@ -37,6 +39,8 @@
         }
       }
     ?>
+
+  <a href="includes/logout.inc.php">Logout</a>
 </body>
 
 </html>

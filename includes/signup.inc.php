@@ -6,6 +6,7 @@ $fullName = $_POST["fullName"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $_SESSION["info"] = "";
+$_SESSION["username"] = "";
 
 if (isset($_POST["submit"])) {
   $sqlCheckUser="SELECT `username`, `pwd`, `email` FROM `user` WHERE username='$fullName' OR email='$email';";
@@ -18,6 +19,7 @@ if (isset($_POST["submit"])) {
   $sqlAddUser = "INSERT INTO user(username, pwd, email) VALUES ('$fullName','$password','$email');";
   mysqli_query($conn, $sqlAddUser);
   $_SESSION["info"] = "SignUp process succeful";
+  $_SESSION["username"] = "$fullName";
   header("Location: ../authorsPanel.php?signup=success");
   }
 }
