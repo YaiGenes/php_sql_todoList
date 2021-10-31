@@ -9,7 +9,7 @@ $_SESSION["info"] = "";
 $_SESSION["username"] = "";
 
 if (isset($_POST["submitting"])) {
-  $sqlCheckUser="SELECT `username`, `pwd`, `email` FROM `user` WHERE username='$fullName' OR email='$email';";
+  $sqlCheckUser="SELECT `username`, `pwd`, `email` FROM `user` WHERE username='$fullName' AND email='$email';";
   $checkingUser = mysqli_query($conn, $sqlCheckUser);
   if (mysqli_num_rows($checkingUser)>0) {
     $_SESSION["username"] = "$fullName";

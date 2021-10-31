@@ -19,24 +19,31 @@
   <div>
     <?=$info?>
   </div>
-  <h3>Welcome <?=$username?>!</h3>
+  <h3>Welcome to your postWall <?=$username?>!</h3>
+
+
 
   <?php
-      
-      $sql = "SELECT * FROM user;";
+    $sql = "SELECT `id` FROM user WHERE username='$username'";
+    $result = mysqli_query($conn, $sql);
+    if ($result !== false) {
+    $value = mysqli_fetch_object($result);
+    $_SESSION['tempIdObj'] = get_object_vars($value);
+    $arrId = $_SESSION['tempIdObj'];
+    $val = $arrId["id"];
+    echo $val;
+    $_SESSION["userId"] = $val;
+  }
+
+      $sql = "SELECT `description` FROM post WHERE userId='$val'";
       $result = mysqli_query($conn, $sql);
 
       $resultCheck = mysqli_num_rows($result);
       
       if ($resultCheck>0) {
         while ($row=mysqli_fetch_assoc($result)) {
-          echo $row["email"] ."<br/>";
-          echo "<hr>";
-          echo $row["username"] ."<br/>";
-          echo "<hr>";
-          echo $row["pwd"] ."<br/>";
-          echo "<hr>";
-        }
+           echo $row["description"] ."<br/>";
+         }
       }
     ?>
 
