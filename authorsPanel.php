@@ -21,9 +21,20 @@
   </div>
   <h3>Welcome to your postWall <?=$username?>!</h3>
 
-
+  <h3>Create your post</h3>
+  <form method="POST" action="includes/post.inc.php">
+    <input type="text" name="title" placeholder="Title">
+    <br>
+    <input type="text" name="description" placeholder="Post">
+    <br>
+    <input type="date" name="date" placeholder="Date">
+    <br>
+    <input type="submit" name="posts" value="Post_IN_uR_Wall">
+  </form>
 
   <?php
+  //Fetching the userId from user table in the database
+
     $sql = "SELECT `id` FROM user WHERE username='$username'";
     $result = mysqli_query($conn, $sql);
     if ($result !== false) {
@@ -35,15 +46,16 @@
     $_SESSION["userId"] = $val;
   }
 
-      $sql = "SELECT `description` FROM post WHERE userId='$val'";
+  //Fetching the post description and title from the post table in the db
+  
+      $sql = "SELECT `description`, `title` FROM post WHERE userId='$val'";
       $result = mysqli_query($conn, $sql);
-
       $resultCheck = mysqli_num_rows($result);
-      
       if ($resultCheck>0) {
         while ($row=mysqli_fetch_assoc($result)) {
-           echo $row["description"] ."<br/>";
-         }
+          echo $row["title"] ."<br/>";
+          echo $row["description"] ."<br/>";
+        }
       }
     ?>
 
