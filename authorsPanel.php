@@ -13,26 +13,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Authors Panel</title>
+  <link rel="stylesheet" href="css/panel.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div>
-    <?=$info?>
-  </div>
-  <h3>Welcome to your postWall <?=$username?>!</h3>
+  <div class="container">
+    <nav>
+      <div>
+        <?=$info?>
+      </div>
+      <h2>Welcome to your todoWall <?=$username?>!</h2>
+      <a href="includes/logout.inc.php">Logout</a>
+    </nav>
+    <form method="POST" action="includes/post.inc.php">
+      <label for="title">Title</label>
+      <input type="text" name="title" placeholder="Cook rice with mangoes">
+      <label for="description">Description</label>
+      <input type="text" name="description" placeholder="Cook the rice and add the mango slices">
+      <input class="btn" type="submit" name="posts" value="addTODO">
+    </form>
 
-  <h3>Create your post</h3>
-  <form method="POST" action="includes/post.inc.php">
-    <input type="text" name="title" placeholder="Title">
-    <br>
-    <input type="text" name="description" placeholder="Post">
-    <br>
-    <input type="date" name="date" placeholder="Date">
-    <br>
-    <input type="submit" name="posts" value="Post_IN_uR_Wall">
-  </form>
-
-  <?php
+    <?php
   //Fetching the userId from user table in the database
 
     $sql = "SELECT `id` FROM user WHERE username='$username'";
@@ -42,7 +46,6 @@
     $_SESSION['tempIdObj'] = get_object_vars($value);
     $arrId = $_SESSION['tempIdObj'];
     $val = $arrId["id"];
-    echo $val;
     $_SESSION["userId"] = $val;
   }
 
@@ -58,8 +61,7 @@
         }
       }
     ?>
-
-  <a href="includes/logout.inc.php">Logout</a>
+  </div>
 </body>
 
 </html>

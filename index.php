@@ -18,17 +18,19 @@
 </head>
 
 <body>
-  <nav>
-    <div>
-      <h1>Your Todo App 🥝</h1>
-    </div>
-    <ul>
-      <li><a href="login.php">Login</a></li>
-      <li><a href="signup.php">SignUp</a></li>
-    </ul>
-  </nav>
-  <main>
-  </main>
+  <div class="container">
+    <nav>
+      <div>
+        <h1>Your ToDo App with 🐘 and 🐬</h1>
+      </div>
+      <div>
+        <ul>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="signup.php">SignUp</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </body>
 
 </html>
