@@ -46,14 +46,14 @@
     $_SESSION["userId"] = $val;
   }
 
-  //Fetching the post description and title from the post table in the db
+  //Fetching the post description and title from the task table in the db
   
-      $sql = "SELECT `description`, `title` FROM post WHERE userId='$val'";
+      $sql = "SELECT `description`, `title` FROM task WHERE userId='$val'";
       $result = mysqli_query($conn, $sql);
       $resultCheck = mysqli_num_rows($result);
       if ($resultCheck>0) {
         while ($row=mysqli_fetch_assoc($result)) {
-          echo $row["title"] ."<br/>";
+          echo '<strong>'.$row["title"].'</strong>' ."<br/>";
           echo $row["description"] ."<br/>";
         }
       }
