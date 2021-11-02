@@ -38,7 +38,7 @@
         <?=$info?>
       </div>
       <h2>Welcome to your todoWall <?=$username?>!</h2>
-      <a href="includes/logout.inc.php">Logout</a>
+      <a class="logout" href="includes/logout.inc.php">Logout</a>
     </nav>
     <div class="todo-list">
       <h3>ToDos</h3>
@@ -51,6 +51,8 @@
           <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>">Mark this as
             done</a>
           <?php endif; ?>
+          <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>">Delete</a>
+          <a class="edit-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>">Edit</a>
         </li>
         <?php endforeach; ?>
       </ul>
