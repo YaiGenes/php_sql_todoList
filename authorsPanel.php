@@ -48,11 +48,13 @@
         <li>
           <span class="todo<?php echo $item['isdone'] ? ' done' : ''?>"><?= $item["title"];?></span>
           <?php if(!$item["isdone"]): ?>
-          <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>">Mark this as
-            done</a>
+          <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>"><img
+              src="assets/svg/check.svg" width="10px" alt="done"></a>
           <?php endif; ?>
-          <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>">Delete</a>
-          <a class="edit-btn" href="includes/pre_edit.inc.php?item=<?=$item['id'];?>">Edit</a>
+          <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>"><img src="assets/svg/trash.svg"
+              width="10px" alt="delete"></a>
+          <a class="edit-btn" href="includes/pre_edit.inc.php?item=<?=$item['id'];?>"><img src="assets/svg/edit.svg"
+              width="10px" alt="edit"></a>
           <?php if($item["isedit"]): ?>
           <form method="POST" action="includes/editTask.php?item=<?=$item['id'];?>">
             <input type="text" name="title" placeholder="Cook rice with mangoes">
