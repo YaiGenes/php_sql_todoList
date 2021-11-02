@@ -1,4 +1,5 @@
 <?php
+//userId fetching from user table in the db
   session_start();
   include_once "dbh_pdo.inc.php";
   $username = $_SESSION["username"];

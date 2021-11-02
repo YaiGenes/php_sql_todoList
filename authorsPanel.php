@@ -1,9 +1,7 @@
 <?php
-  include_once "includes/dbh.inc.php";
-  include_once "includes/userId_fetching.inc.php";
+  include_once "includes/todos_fetching.inc.php";
   $info = $_SESSION["info"];
   $username = $_SESSION["username"];
-  $val = $_SESSION["userId"]
 ?>
 
 <!DOCTYPE html>
@@ -29,26 +27,31 @@
       <h2>Welcome to your todoWall <?=$username?>!</h2>
       <a href="includes/logout.inc.php">Logout</a>
     </nav>
-    <form method="POST" action="includes/post.inc.php">
-      <label for="title">Title</label>
-      <input type="text" name="title" placeholder="Cook rice with mangoes">
-      <label for="description">Description</label>
-      <input type="text" name="description" placeholder="Cook the rice and add the mango slices">
-      <input class="btn" type="submit" name="posts" value="addTODO">
-    </form>
+    <div class="todo-list">
+      <h3>ToDos</h3>
+      <?php if(!empty($items)):?>
+      <ul class="todos">
+        <li>
+          <span class="todo">Cook rice and mangoes</span>
+          <a href="#" class="done-button">Mark as done</a>
+        </li>
+      </ul>
+      <?php else: ?>
+      <p>You dont have any todo!</p>
+      <?php endif;?>
+      <form method="POST" action="includes/post.inc.php">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Cook rice with mangoes">
+        <label for="description">Description</label>
+        <input type="text" name="description" placeholder="Cook the rice and add the mango slices">
+        <input class="btn" type="submit" name="posts" value="addTODO">
+      </form>
+    </div>
 
     <?php
-
-  //Fetching the post description and title from the task table in the db
-  
-      $sql = "SELECT `description`, `title` FROM task WHERE userId='$val'";
-      $result = mysqli_query($conn, $sql);
-      $resultCheck = mysqli_num_rows($result);
-      if ($resultCheck>0) {
-        while ($row=mysqli_fetch_assoc($result)) {
-          echo '<strong>'.$row["title"].'</strong>' ."<br/>";
-          echo $row["description"] ."<br/>";
-        }
+      foreach ($items as $item) {
+        echo '<strong>'.$item["title"].'</strong>' ."<br/>";
+        echo $item["description"] ."<br/>";
       }
     ?>
   </div>
