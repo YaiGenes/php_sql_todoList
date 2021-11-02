@@ -48,7 +48,8 @@
         <li>
           <span class="todo<?php echo $item['isdone'] ? ' done' : ''?>"><?= $item["title"];?></span>
           <?php if(!$item["isdone"]): ?>
-          <a class="done-btn" href="#">Mark this as done</a>
+          <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>">Mark this as
+            done</a>
           <?php endif; ?>
         </li>
         <?php endforeach; ?>
@@ -57,7 +58,6 @@
       <p>You dont have any todo!</p>
       <?php endif;?>
       <form method="POST" action="includes/post.inc.php">
-        <label for="title">Title</label>
         <input type="text" name="title" placeholder="Cook rice with mangoes">
         <input class="btn" type="submit" name="posts" value="addTODO">
       </form>

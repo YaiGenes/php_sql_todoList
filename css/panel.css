@@ -23,6 +23,14 @@ nav {
   align-items: center;
 }
 
+h3 {
+  font-size: 2rem;
+}
+
+.done {
+  text-decoration-line: line-through;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -39,7 +47,8 @@ a,
 button,
 h1,
 h2,
-h3 {
+h3,
+span {
   font-family: "Shadows Into Light", cursive;
 }
 
@@ -89,9 +98,4 @@ input {
 .btn:hover {
   background-color: rgb(2, 136, 2);
   color: white;
-}
-
-.done {
-  text-decoration-line: line-through;
-  color: red;
 }
