@@ -38,26 +38,30 @@
         <?=$info?>
       </div>
       <h2>Welcome to your todoWall <?=$username?>!</h2>
-      <a class="logout" href="includes/logout.inc.php">Logout</a>
+      <a class="logout" href="includes/logout.inc.php"><img width="25px" src="assets/svg/logout.svg" alt="logout"></a>
     </nav>
+    <h3>ToDos</h3>
     <div class="todo-list">
-      <h3>ToDos</h3>
       <?php if(!empty($items)):?>
       <ul class="todos">
         <?php foreach ($items as $item): ?>
-        <li>
-          <span class="todo<?php echo $item['isdone'] ? ' done' : ''?>"><?= $item["title"];?></span>
-          <?php if(!$item["isdone"]): ?>
-          <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>"><img
-              src="assets/svg/check.svg" width="10px" alt="done"></a>
-          <?php endif; ?>
-          <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>"><img src="assets/svg/trash.svg"
-              width="10px" alt="delete"></a>
-          <a class="edit-btn" href="includes/pre_edit.inc.php?item=<?=$item['id'];?>"><img src="assets/svg/edit.svg"
-              width="10px" alt="edit"></a>
+        <li class="task">
+          <div class="flex">
+            <span class="todo<?php echo $item['isdone'] ? ' done' : ''?>"><?= $item["title"];?></span>
+            <div class="functions-container">
+              <?php if(!$item["isdone"]): ?>
+              <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>"><img
+                  src="assets/svg/check.svg" width="10px" alt="done"></a>
+              <?php endif; ?>
+              <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>"><img
+                  src="assets/svg/trash.svg" width="10px" alt="delete"></a>
+              <a class="edit-btn" href="includes/pre_edit.inc.php?item=<?=$item['id'];?>"><img src="assets/svg/edit.svg"
+                  width="10px" alt="edit"></a>
+            </div>
+          </div>
           <?php if($item["isedit"]): ?>
-          <form method="POST" action="includes/editTask.php?item=<?=$item['id'];?>">
-            <input type="text" name="title" placeholder="Cook rice with mangoes">
+          <form class="edit-form" method="POST" action="includes/editTask.php?item=<?=$item['id'];?>">
+            <input type="text" name="title" placeholder="Editing...">
             <input class="btn" type="submit" name="edit" value="Edit">
           </form>
           <?php endif; ?>
@@ -67,11 +71,11 @@
       <?php else: ?>
       <p>You dont have any todo!</p>
       <?php endif;?>
-      <form method="POST" action="includes/post.inc.php">
-        <input type="text" name="title" placeholder="Cook rice with mangoes">
-        <input class="btn" type="submit" name="posts" value="addTODO">
-      </form>
     </div>
+    <form method="POST" action="includes/post.inc.php">
+      <input type="text" name="title" placeholder="Cook rice with mangoes">
+      <input class="btn" type="submit" name="posts" value="addTODO">
+    </form>
   </div>
 </body>
 

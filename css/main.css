@@ -7,6 +7,11 @@ html,
   line-height: 1;
 }
 
+.foot {
+  color: snow;
+  font-family: "Shadows Into Light", cursive;
+}
+
 .container {
   display: flex;
   flex-direction: column;

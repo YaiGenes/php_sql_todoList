@@ -21,14 +21,16 @@
   <div class="container">
     <nav>
       <div>
-        <h1>Your ToDo App with 🐘 and 🐬</h1>
+        <h1>Your ToDo App!</h1>
       </div>
       <div>
         <ul>
-          <li><a href="login.php">Login</a></li>
-          <li><a href="signup.php">SignUp</a></li>
+          <li><a href="login.php"><img width="25px" src="assets/svg/login.svg" alt="login"></a></li>
+          <li><a href="signup.php"><img width="25px" src="assets/svg/signup.svg" alt="signup"></a></li>
         </ul>
       </div>
+      <p class="foot">&copy; 2021 by <a href="https://github.com/YaiGenes" target="_blank">YaiGenes</a></p>
+      <p class="foot">Powered by 🐘 and 🐬</p>
     </nav>
   </div>
 </body>
