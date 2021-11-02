@@ -1,7 +1,20 @@
 <?php
   include_once "includes/todos_fetching.inc.php";
+  // include_once "includes/dbh_pdo.inc.php";
+  // include_once "includes/userId_fetching.inc.php";
   $info = $_SESSION["info"];
   $username = $_SESSION["username"];
+  // $username = $_SESSION["username"];
+  // $val = $_SESSION["userId"];
+  // $tasksQuery=$db->prepare("
+  //       SELECT `description`, `title` 
+  //       FROM task WHERE userId=:userId
+  //     ");
+  //     $tasksQuery->execute([
+  //       "userId"=>$val
+  //     ]);
+
+  //     $items = $tasksQuery->rowCount()?$tasksQuery:[];
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +44,12 @@
       <h3>ToDos</h3>
       <?php if(!empty($items)):?>
       <ul class="todos">
+        <?php foreach ($items as $item): ?>
         <li>
-          <span class="todo">Cook rice and mangoes</span>
-          <a href="#" class="done-button">Mark as done</a>
+          <span class="todo"><?= $item["title"];?></span>
+          <a href="#">Mark this as done</a>
         </li>
+        <?php endforeach; ?>
       </ul>
       <?php else: ?>
       <p>You dont have any todo!</p>
@@ -47,13 +62,6 @@
         <input class="btn" type="submit" name="posts" value="addTODO">
       </form>
     </div>
-
-    <?php
-      foreach ($items as $item) {
-        echo '<strong>'.$item["title"].'</strong>' ."<br/>";
-        echo $item["description"] ."<br/>";
-      }
-    ?>
   </div>
 </body>
 
