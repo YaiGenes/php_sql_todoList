@@ -52,7 +52,13 @@
             done</a>
           <?php endif; ?>
           <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>">Delete</a>
-          <a class="edit-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>">Edit</a>
+          <a class="edit-btn" href="includes/pre_edit.inc.php?item=<?=$item['id'];?>">Edit</a>
+          <?php if($item["isedit"]): ?>
+          <form method="POST" action="includes/editTask.php?item=<?=$item['id'];?>">
+            <input type="text" name="title" placeholder="Cook rice with mangoes">
+            <input class="btn" type="submit" name="edit" value="Edit">
+          </form>
+          <?php endif; ?>
         </li>
         <?php endforeach; ?>
       </ul>

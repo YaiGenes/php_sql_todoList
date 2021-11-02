@@ -5,7 +5,7 @@
   $username = $_SESSION["username"];
   $val = $_SESSION["userId"];
   $tasksQuery=$db->prepare("
-        SELECT `id`, `title`, `isdone`
+        SELECT `id`, `title`, `isdone`, `isedit`
         FROM task WHERE userId=:userId
       ");
       $tasksQuery->execute([
