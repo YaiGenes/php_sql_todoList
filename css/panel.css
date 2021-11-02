@@ -90,3 +90,8 @@ input {
   background-color: rgb(2, 136, 2);
   color: white;
 }
+
+.done {
+  text-decoration-line: line-through;
+  color: red;
+}

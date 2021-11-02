@@ -46,8 +46,10 @@
       <ul class="todos">
         <?php foreach ($items as $item): ?>
         <li>
-          <span class="todo"><?= $item["title"];?></span>
-          <a href="#">Mark this as done</a>
+          <span class="todo<?php echo $item['isdone'] ? ' done' : ''?>"><?= $item["title"];?></span>
+          <?php if(!$item["isdone"]): ?>
+          <a class="done-btn" href="#">Mark this as done</a>
+          <?php endif; ?>
         </li>
         <?php endforeach; ?>
       </ul>
@@ -57,8 +59,6 @@
       <form method="POST" action="includes/post.inc.php">
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="Cook rice with mangoes">
-        <label for="description">Description</label>
-        <input type="text" name="description" placeholder="Cook the rice and add the mango slices">
         <input class="btn" type="submit" name="posts" value="addTODO">
       </form>
     </div>
