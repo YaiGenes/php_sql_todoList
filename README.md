@@ -1,12 +1,7 @@
 # php_sql_todoList
 This is an academical project to implement php code with sql data base management into a Todo List app.
 
-
-## Badges
-
-[![React dom](https://img.shields.io/badge/React-17.0.2-blue)](https://img.shields.io/badge/React-17.0.2-blue)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.1-blue)](https://getbootstrap.com/docs/5.1)
-  
+ 
 ## Stack
 
 php, sql, login system
