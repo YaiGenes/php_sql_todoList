@@ -3,14 +3,12 @@ require_once "dbh_pdo.inc.php";
 session_start();
 
 if (isset($_POST["edit"])) {
-  $item = $_POST["item"];
+  $item = $_GET["item"];
   $title = $_POST["title"];
 
   $editQuery = $db->prepare("
     UPDATE task
-    SET isedit= 0,
-    isdone= 0,
-    title= :title
+    SET title= :title
     WHERE id = :item
     AND userId = :userId
   ");
