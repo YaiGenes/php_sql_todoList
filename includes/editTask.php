@@ -8,7 +8,9 @@ if (isset($_POST["edit"])) {
 
   $editQuery = $db->prepare("
     UPDATE task
-    SET title= :title
+    SET isedit= 0,
+    isdone= 0,
+    title= :title
     WHERE id = :item
     AND userId = :userId
   ");
