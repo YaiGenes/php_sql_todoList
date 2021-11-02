@@ -1,8 +1,9 @@
 <?php
-  session_start();
   include_once "includes/dbh.inc.php";
+  include_once "includes/userId_fetching.inc.php";
   $info = $_SESSION["info"];
-  $username = $_SESSION["username"]
+  $username = $_SESSION["username"];
+  $val = $_SESSION["userId"]
 ?>
 
 <!DOCTYPE html>
@@ -37,17 +38,6 @@
     </form>
 
     <?php
-  //Fetching the userId from user table in the database
-
-    $sql = "SELECT `id` FROM user WHERE username='$username'";
-    $result = mysqli_query($conn, $sql);
-    if ($result !== false) {
-    $value = mysqli_fetch_object($result);
-    $_SESSION['tempIdObj'] = get_object_vars($value);
-    $arrId = $_SESSION['tempIdObj'];
-    $val = $arrId["id"];
-    $_SESSION["userId"] = $val;
-  }
 
   //Fetching the post description and title from the task table in the db
   
