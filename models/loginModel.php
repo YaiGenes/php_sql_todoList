@@ -1,4 +1,5 @@
 <?php
+//session_start();
 require_once('helpers/dbConnection.php');
 
 function authUser($name, $password){
@@ -7,7 +8,7 @@ function authUser($name, $password){
   $authQuery->execute([
     'username' => $name,
     'pwd' => $password
-  ])
+  ]);
   } catch (PDOException $errorMsg) {
     $errorMsg->getMessage();
     require_once VIEWS . "error/error.php";
@@ -15,11 +16,11 @@ function authUser($name, $password){
   return $authQuery;
 }
 
-$fullName = $_POST["fullName"];
-$email = $_POST["email"];
-$password = $_POST["password"];
-$_SESSION["info"] = "";
-$_SESSION["username"] = "";
+// $fullName = $_POST["fullName"];
+// $email = $_POST["email"];
+// $password = $_POST["password"];
+// $_SESSION["info"] = "";
+// $_SESSION["username"] = "";
 
 // if (isset($_POST["submitting"])) {
 //   $authQuery="SELECT `username`, `pwd`, `email` FROM `user` WHERE username='$fullName' AND pwd='$password';";

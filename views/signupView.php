@@ -1,5 +1,4 @@
 <?php
-  session_start();
   $info = $_SESSION["info"];
 ?>
 
@@ -28,7 +27,7 @@
           <h2>SingUp</h2>
         </div>
         <div>
-          <a href="login.php">Login</a>
+          <a href="loginView.php">Login</a>
         </div>
       </menu>
     </nav>

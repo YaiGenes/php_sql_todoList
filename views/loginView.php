@@ -27,11 +27,11 @@
           <h2>Login</h2>
         </div>
         <div>
-          <a href="signup.php">SignUp</a>
+          <a href="signupView.php">SignUp</a>
         </div>
       </menu>
     </nav>
-    <form action="../controllers/loginController.php" method="POST">
+    <form action="../controllers/loginController.php?action=userLogin" method="POST">
       <label for="fullName">Full Name</label>
       <br>
       <input type="text" name="fullName" placeholder="Pedrito Calvo">
