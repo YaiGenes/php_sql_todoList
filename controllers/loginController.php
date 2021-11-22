@@ -5,7 +5,7 @@ session_start();
 $_SESSION["info"] = "";
 $_SESSION["username"] = "";
 
-$action = "";
+//$action = "";
 
 if (isset($_POST["submitting"])) {
   $fullName = $_POST["fullName"];
@@ -14,13 +14,11 @@ if (isset($_POST["submitting"])) {
 
 if ((authUser($fullName, $password)->rowCount())>0) {
     $_SESSION["username"] = "$fullName";
-    require_once("../views/authorsPanel.php");
+    require_once("fetchTaskController.php?action=fetchTasks");
   }else{
   $_SESSION["info"] = "You are not registered, please SignUp";
   require_once("../views/signupView.php");
   }
-
-var_dump($_POST["fullname"]);
 
 // if (isset($_GET["action"])) {
 //   $action = $_GET["action"];
