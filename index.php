@@ -1,38 +1,22 @@
 <?php
-  session_start();
-  $_SESSION["info"]="";
-?>
 
-<!DOCTYPE html>
-<html lang="en">
+require_once "config/constants.php";
+require_once "config/db.php";
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  <title>Home</title>
-</head>
+if (isset($_GET['controller'])) {
+  $controller = getControllerPath($_GET['controller']);
+  $fileExists = file_exists($controller);
 
-<body>
-  <div class="container">
-    <nav>
-      <div>
-        <h1>Your ToDo App!</h1>
-      </div>
-      <div>
-        <ul>
-          <li><a href="login.php"><img width="25px" src="assets/svg/login.svg" alt="login"></a></li>
-          <li><a href="signup.php"><img width="25px" src="assets/svg/signup.svg" alt="signup"></a></li>
-        </ul>
-      </div>
-      <p class="foot">&copy; 2021 by <a href="https://github.com/YaiGenes" target="_blank">YaiGenes</a></p>
-      <p class="foot">Powered by 🐘 and 🐬</p>
-    </nav>
-  </div>
-</body>
+  if ($fileExists) {
+    require_once $controller;
+  }else {
+    $errorMsg = "The page that you are trying to access does not exists.";
+    require_once VIEWS . "error/error.php";
+  }
+}else {
+  require_once VIEWS ."main/index.php";
+}
 
-</html>
+function getControllerPath($controller): string{
+  return CONTROLLERS . $_GET['controller']. "Controller.php";
+}

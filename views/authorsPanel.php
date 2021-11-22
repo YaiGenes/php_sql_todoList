@@ -1,20 +1,8 @@
 <?php
   include_once "includes/todos_fetching.inc.php";
-  // include_once "includes/dbh_pdo.inc.php";
-  // include_once "includes/userId_fetching.inc.php";
   $info = $_SESSION["info"];
   $username = $_SESSION["username"];
-  // $username = $_SESSION["username"];
-  // $val = $_SESSION["userId"];
-  // $tasksQuery=$db->prepare("
-  //       SELECT `description`, `title` 
-  //       FROM task WHERE userId=:userId
-  //     ");
-  //     $tasksQuery->execute([
-  //       "userId"=>$val
-  //     ]);
 
-  //     $items = $tasksQuery->rowCount()?$tasksQuery:[];
 ?>
 
 <!DOCTYPE html>
