@@ -20,7 +20,7 @@ if ((authUser($fullName, $password)->rowCount())>0) {
   require_once("../views/signupView.php");
   }
 
-//var_dump($_GET["action"]);
+var_dump($_POST["fullname"]);
 
 // if (isset($_GET["action"])) {
 //   $action = $_GET["action"];
