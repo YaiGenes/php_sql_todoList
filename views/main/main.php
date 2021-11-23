@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $_SESSION["info"]="";
+  echo getcwd();
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +26,10 @@
       </div>
       <div>
         <ul>
-          <li><a href="./views/loginView.php"><img width="25px" src="assets/svg/login.svg" alt="login"></a></li>
-          <li><a href="./views/signUpView.php"><img width="25px" src="assets/svg/signup.svg" alt="signup"></a></li>
+          <li><a href="index.php?controller=login&action=loginUser"><img width="25px" src="assets/svg/login.svg"
+                alt="login"></a></li>
+          <li><a href="index.php?controller=signUp&action=loginSignUp"><img width="25px" src="assets/svg/signup.svg"
+                alt="signup"></a></li>
         </ul>
       </div>
       <p class="foot">&copy; 2021 by <a href="https://github.com/YaiGenes" target="_blank">YaiGenes</a></p>

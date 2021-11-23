@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -27,11 +27,11 @@
           <h2>Login</h2>
         </div>
         <div>
-          <a href="signupView.php">SignUp</a>
+          <a href="index.php?controller=signUp&action=loginSignUp">SignUp</a>
         </div>
       </menu>
     </nav>
-    <form action="../controllers/loginController.php?action=userLogin" method="POST">
+    <form action="index.php?controller=auth&action=authUser" method="POST">
       <label for="fullName">Full Name</label>
       <br>
       <input type="text" name="fullName" placeholder="Pedrito Calvo">

@@ -1,2 +1,4 @@
 <?php
-require_once("../models/fetchTaskModel.php");
+require_once MODELS . "fetchTaskModel.php";
+
+echo "Hallo";

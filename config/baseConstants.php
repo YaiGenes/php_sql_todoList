@@ -1,17 +1,16 @@
 <?php
 
 $documentRoot = getcwd();
-$documentRoot = explode('\\', $documentRoot);
+// $documentRoot = explode('\\', $documentRoot);
 
-$rootPath = "";
-for ($i=0; $i <= count($documentRoot)-1 ; $i++) { 
-  $rootPath = $rootPath . '/' . $documentRoot[$i];
-}
-$rootPath= substr($rootPath, 1);
-
+// $rootPath = "";
+// for ($i=0; $i <= count($documentRoot)-1 ; $i++) { 
+//   $rootPath = $rootPath . '/' . $documentRoot[$i];
+// }
+// $rootPath= substr($rootPath, 1);
 
 //Base path for reference files
-define('BASE_PATH', $rootPath);
+define('BASE_PATH', $documentRoot);
 
 //Base URL -> to link css
 $uri = $_SERVER['REQUEST_URI'];

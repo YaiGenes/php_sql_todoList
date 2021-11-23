@@ -1,6 +1,6 @@
 <?php
 //session_start();
-require_once('helpers/dbConnection.php');
+require_once CONTROLLERS . '/helpers/dbConnection.php';
 
 function authUser($name, $password){
   $authQuery = db()->prepare("SELECT username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");

@@ -1,7 +1,3 @@
-<?php
-  $info = $_SESSION["info"];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SingUp</title>
-  <link rel="stylesheet" href="../css/form.css">
+  <link rel="stylesheet" href="css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -27,7 +23,7 @@
           <h2>SingUp</h2>
         </div>
         <div>
-          <a href="loginView.php">Login</a>
+          <a href="index.php?controller=login&action=loginUser">Login</a>
         </div>
       </menu>
     </nav>
@@ -41,10 +37,6 @@
       <input type="email" name="email" placeholder="pedritoc@nose.cii">
       <input class="btn" type="submit" name="submit" value="SignUp">
     </form>
-
-    <div>
-      <?=$info?>
-    </div>
   </div>
 </body>
 

@@ -14,7 +14,7 @@ if (isset($_GET['controller'])) {
     require_once VIEWS . "error/error.php";
   }
 }else {
-  require_once VIEWS ."main/index.php";
+  require_once VIEWS ."main/main.php";
 }
 
 function getControllerPath($controller): string{

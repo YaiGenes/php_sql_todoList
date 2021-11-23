@@ -6,6 +6,6 @@ if (isset($_GET["action"])) {
   error("The function that you are trying to call does not exist");
 }
 
-function loginUser(){
-  require_once VIEWS . "loginView.php";
+function loginSignUp(){
+  require_once VIEWS . "signUpView.php";
 }
