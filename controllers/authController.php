@@ -21,10 +21,12 @@ if (isset($_GET["action"])) {
 function authLogin($fullName, $password){
 if ((authUser($fullName, $password)->rowCount())>0) {
     $_SESSION["username"] = "$fullName";
+    $fetchUser = authUser($fullName, $password)->fetch();
+    $_SESSION["userId"] = $fetchUser['id'];
     header("Location: index.php?controller=fetchTask&action=getUserTodos");
   }else{
-  $_SESSION["info"] = "You are not registered, please SignUp";
-  header("Location: index.php?controller=signUp&action=loginSignUp");
+    $_SESSION["info"] = "You are not registered, please SignUp";
+    header("Location: index.php?controller=signUp&action=loginSignUp");
   }
 }
 

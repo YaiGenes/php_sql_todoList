@@ -27,7 +27,7 @@
         </div>
       </menu>
     </nav>
-    <form action="includes/signup.inc.php" method="POST">
+    <form action="index.php?controller=register&action=register" method="POST">
       <h1>SignUp</h1>
       <label for="fullName">Full Name</label>
       <input type="text" name="fullName" placeholder="Pedrito Calvo">

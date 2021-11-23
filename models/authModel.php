@@ -3,7 +3,7 @@
 require_once CONTROLLERS . '/helpers/dbConnection.php';
 
 function authUser($name, $password){
-  $authQuery = db()->prepare("SELECT username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");
+  $authQuery = db()->prepare("SELECT id, username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");
   try {
   $authQuery->execute([
     'username' => $name,
