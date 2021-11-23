@@ -31,7 +31,7 @@
         </div>
       </menu>
     </nav>
-    <form action="index.php?controller=auth&action=authUser" method="POST">
+    <form action="index.php?controller=auth&action=authLogin" method="POST">
       <label for="fullName">Full Name</label>
       <br>
       <input type="text" name="fullName" placeholder="Pedrito Calvo">
