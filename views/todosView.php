@@ -25,7 +25,8 @@
         <?=$info?>
       </div>
       <h2>Welcome to your todoWall <?=$username?>!</h2>
-      <a class="logout" href="includes/logout.inc.php"><img width="25px" src="assets/svg/logout.svg" alt="logout"></a>
+      <a class="logout" href="index.php?controller=logout&action=logout"><img width="25px" src="assets/svg/logout.svg"
+          alt="logout"></a>
     </nav>
     <h3>ToDos</h3>
     <div class="todo-list">
