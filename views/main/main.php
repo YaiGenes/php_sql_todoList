@@ -1,6 +1,5 @@
 <?php
   session_start();
-  echo getcwd();
 ?>
 
 <!DOCTYPE html>

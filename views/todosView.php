@@ -1,5 +1,4 @@
 <?php
-  include_once "includes/todos_fetching.inc.php";
   $info = $_SESSION["info"];
   $username = $_SESSION["username"];
 
@@ -30,25 +29,25 @@
     </nav>
     <h3>ToDos</h3>
     <div class="todo-list">
-      <?php if(!empty($items)):?>
+      <?php if(!empty($todos)):?>
       <ul class="todos">
-        <?php foreach ($items as $item): ?>
+        <?php foreach ($todos as $todo): ?>
         <li class="task">
           <div class="flex">
-            <span class="todo<?php echo $item['isdone'] ? ' done' : ''?>"><?= $item["title"];?></span>
+            <span class="todo<?php echo $todo['isdone'] ? ' done' : ''?>"><?= $todo["title"];?></span>
             <div class="functions-container">
-              <?php if(!$item["isdone"]): ?>
-              <a class="done-btn" href="includes/markAsDone.php?as=done&item=<?=$item['id'];?>"><img
+              <?php if(!$todo["isdone"]): ?>
+              <a class="done-btn" href="includes/markAsDone.php?as=done&todo=<?=$todo['id'];?>"><img
                   src="assets/svg/check.svg" width="10px" alt="done"></a>
               <?php endif; ?>
-              <a class="delete-btn" href="includes/deleteTask.php?item=<?=$item['id'];?>"><img
+              <a class="delete-btn" href="includes/deleteTask.php?todo=<?=$todo['id'];?>"><img
                   src="assets/svg/trash.svg" width="10px" alt="delete"></a>
-              <a class="edit-btn" href="includes/pre_edit.inc.php?item=<?=$item['id'];?>"><img src="assets/svg/edit.svg"
+              <a class="edit-btn" href="includes/pre_edit.inc.php?todo=<?=$todo['id'];?>"><img src="assets/svg/edit.svg"
                   width="10px" alt="edit"></a>
             </div>
           </div>
-          <?php if($item["isedit"]): ?>
-          <form class="edit-form" method="POST" action="includes/editTask.php?item=<?=$item['id'];?>">
+          <?php if($todo["isedit"]): ?>
+          <form class="edit-form" method="POST" action="includes/editTask.php?todo=<?=$todo['id'];?>">
             <input type="text" name="title" placeholder="Editing...">
             <input class="btn" type="submit" name="edit" value="Edit">
           </form>

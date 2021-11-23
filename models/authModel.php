@@ -15,14 +15,3 @@ function authUser($name, $password){
   }
   return $authQuery;
 }
-
-// $fullName = $_POST["fullName"];
-// $email = $_POST["email"];
-// $password = $_POST["password"];
-// $_SESSION["info"] = "";
-// $_SESSION["username"] = "";
-
-// if (isset($_POST["submitting"])) {
-//   $authQuery="SELECT `username`, `pwd`, `email` FROM `user` WHERE username='$fullName' AND pwd='$password';";
-//   $userAuth = mysqli_query($conn, $authQuery);
-// }
