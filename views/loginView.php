@@ -23,11 +23,12 @@
           <h2>Login</h2>
         </div>
         <div>
-          <a href="index.php?controller=signUp&action=loginSignUp">SignUp</a>
+          <a href="index.php?controller=users&action=loginSystem&type=login">SignUp</a>
         </div>
       </menu>
     </nav>
-    <form action="index.php?controller=auth&action=authLogin" method="POST">
+    <form action="index.php?controller=users&action=loginSystem" method="POST">
+      <input type="hidden" name="type" value="login">
       <label for="fullName">Full Name</label>
       <br>
       <input type="text" name="fullName" placeholder="Pedrito Calvo">

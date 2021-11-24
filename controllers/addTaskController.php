@@ -5,16 +5,19 @@ session_start();
 $title = $_POST["title"];
 $userId = $_SESSION["userId"];
 
+echo $userId;
+
 if (isset($_GET["action"])) {
   $action = $_GET["action"];
   call_user_func($action, $title, $userId);
-}else {
+} else {
   error("The function that you are trying to call does not exist");
 }
 
-function addTask($title, $userId){
-if (createTask($title, $userId)) {
-      echo "Post created succefully";
-      header("Location: index.php?controller=fetchTask&action=getUserTodos");
-    }
+function addTask($title, $userId)
+{
+  if (createTask($title, $userId)) {
+    echo "Post created succefully";
+    header("Location: index.php?controller=fetchTask&action=getUserTodos");
+  }
 }

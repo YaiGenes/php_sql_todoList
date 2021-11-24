@@ -23,12 +23,13 @@
           <h2>SingUp</h2>
         </div>
         <div>
-          <a href="index.php?controller=login&action=loginUser">Login</a>
+          <a href="index.php?controller=users&action=loginSystem&type=register">Login</a>
         </div>
       </menu>
     </nav>
-    <form action="index.php?controller=register&action=register" method="POST">
+    <form action="index.php?controller=users&action=loginSystem" method="POST">
       <h1>SignUp</h1>
+      <input type="hidden" name="type" value="register">
       <label for="fullName">Full Name</label>
       <input type="text" name="fullName" placeholder="Pedrito Calvo">
       <label for="password">Password</label>
