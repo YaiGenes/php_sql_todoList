@@ -16,7 +16,7 @@ function checkUser($name, $email){
 }
 
 function postUser($name, $email, $pwd){
-  $postUserQuery = db()->prepare("INSERT INTO user(username, pwd, email) VALUES (:username, :email, :pwd)");
+  $postUserQuery = db()->prepare("INSERT INTO user(username, email, pwd) VALUES (:username, :email, :pwd)");
   try {
   $postUserQuery->execute([
     'username' => $name,

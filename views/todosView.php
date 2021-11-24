@@ -43,12 +43,12 @@
               <?php endif; ?>
               <a class="delete-btn" href="index.php?controller=delete&action=delete&id=<?=$todo['id'];?>"><img
                   src="assets/svg/trash.svg" width="10px" alt="delete"></a>
-              <a class="edit-btn" href="includes/pre_edit.inc.php?todo=<?=$todo['id'];?>"><img src="assets/svg/edit.svg"
-                  width="10px" alt="edit"></a>
+              <a class="edit-btn" href="index.php?controller=preEdit&action=pEdit&id=<?=$todo['id'];?>"><img
+                  src="assets/svg/edit.svg" width="10px" alt="edit"></a>
             </div>
           </div>
           <?php if($todo["isedit"]): ?>
-          <form class="edit-form" method="POST" action="includes/editTask.php?todo=<?=$todo['id'];?>">
+          <form class="edit-form" method="POST" action="index.php?controller=edit&action=edit&id=<?=$todo['id'];?>">
             <input type="text" name="title" placeholder="Editing...">
             <input class="btn" type="submit" name="edit" value="Edit">
           </form>
