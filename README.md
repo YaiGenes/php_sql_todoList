@@ -10,9 +10,9 @@ php, sql, login system
   
 ## Table of contents
 
-- php OPP
+- php with MVC architecture
 - Session storage
-- php queries PDO and not PDO
+- php queries PDO
 - Data fetching
 - phpMyAdmin
 - Relational database
