@@ -60,7 +60,7 @@
       <p>You dont have any todo!</p>
       <?php endif;?>
     </div>
-    <form method="POST" action="includes/post.inc.php">
+    <form method="POST" action="index.php?controller=addTask&action=addTask">
       <input type="text" name="title" placeholder="Cook rice with mangoes">
       <input class="btn" type="submit" name="posts" value="addTODO">
     </form>
