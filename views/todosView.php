@@ -38,7 +38,7 @@
             <span class="todo<?php echo $todo['isdone'] ? ' done' : ''?>"><?= $todo["title"];?></span>
             <div class="functions-container">
               <?php if(!$todo["isdone"]): ?>
-              <a class="done-btn" href="includes/markAsDone.php?as=done&todo=<?=$todo['id'];?>"><img
+              <a class="done-btn" href="index.php?controller=done&action=markAsDone&todo=<?=$todo['id'];?>"><img
                   src="assets/svg/check.svg" width="10px" alt="done"></a>
               <?php endif; ?>
               <a class="delete-btn" href="includes/deleteTask.php?todo=<?=$todo['id'];?>"><img
