@@ -41,7 +41,7 @@
               <a class="done-btn" href="index.php?controller=done&action=markAsDone&todo=<?=$todo['id'];?>"><img
                   src="assets/svg/check.svg" width="10px" alt="done"></a>
               <?php endif; ?>
-              <a class="delete-btn" href="includes/deleteTask.php?todo=<?=$todo['id'];?>"><img
+              <a class="delete-btn" href="index.php?controller=delete&action=delete&id=<?=$todo['id'];?>"><img
                   src="assets/svg/trash.svg" width="10px" alt="delete"></a>
               <a class="edit-btn" href="includes/pre_edit.inc.php?todo=<?=$todo['id'];?>"><img src="assets/svg/edit.svg"
                   width="10px" alt="edit"></a>
