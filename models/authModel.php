@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once CONTROLLERS . '/helpers/dbConnection.php';
 
 function authUser($name, $password){
