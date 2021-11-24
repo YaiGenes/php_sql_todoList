@@ -1,7 +1,7 @@
 <?php
 require_once CONTROLLERS . '/helpers/dbConnectionProcedural.php';
 
-function get()
+function get($name)
 {
   $fetchAllQuery = db()->prepare("
     SELECT id, title, isdone, isedit
@@ -12,7 +12,7 @@ function get()
   //"SELECT id, title, isdone, isedit FROM task WHERE userId=(SELECT id FROM user WHERE username= 'yaiserar')";
   try {
     $fetchAllQuery->execute([
-      'username' => 'yaiserar'
+      'username' => $name
     ]);
     $tasks = $fetchAllQuery->fetchAll();
     return $tasks;

@@ -3,16 +3,24 @@
 require_once MODELS . 'usersModel.php';
 
 session_start();
+$_SESSION["info"] = "";
+$_SESSION["username"] = "";
 
 if (isset($_POST["email"])) {
   $email = $_POST["email"];
 } else {
   $email = '';
 }
-$fullName = $_POST["fullName"];
-$password = $_POST["password"];
-$_SESSION["info"] = "";
-$_SESSION["username"] = "";
+if (isset($_POST["fullName"])) {
+  $fullName = $_POST["fullName"];
+} else {
+  $fullName = '';
+}
+if (isset($_POST["password"])) {
+  $password = $_POST["password"];
+} else {
+  $password = '';
+}
 
 
 if (isset($_GET["action"])) {
