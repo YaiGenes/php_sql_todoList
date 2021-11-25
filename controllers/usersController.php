@@ -63,8 +63,18 @@ class Users
       header("Location: index.php?controller=fetchTask&action=getUserTodos");
     } else {
       $_SESSION["info"] = "You are not registered, please SignUp";
-      require_once VIEWS . "signUpView.php";;
+      require_once VIEWS . "signUpView.php";
     }
+  }
+
+  public function loginView()
+  {
+    require_once VIEWS . "loginView.php";
+  }
+
+  public function SignUpView()
+  {
+    require_once VIEWS . "signUpView.php";
   }
 }
 
@@ -85,10 +95,10 @@ function loginSystem($fullName, $email, $password)
   } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     switch ($_GET['type']) {
       case 'register':
-        $init->register($fullName, $email, $password);
+        $init->loginView();
         break;
       case 'login':
-        $init->login($fullName, $password);
+        $init->SignUpView();
         break;
     }
   }
