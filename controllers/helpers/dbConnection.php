@@ -33,29 +33,44 @@ class Database extends DB
   {
     $this->stmt = $this->dbh->prepare($sql);
   }
-  //Execute the prepared statement
-  public function execution($assocArr)
+  //Bind params
+  public function bind($param, $value, $type = null)
   {
-    return $this->stmt->execute($assocArr);
+    if (is_null($type)) {
+      switch (true) {
+        case is_int($value):
+          $type = PDO::PARAM_INT;
+          break;
+        case is_bool($value):
+          $type = PDO::PARAM_BOOL;
+          break;
+        case is_null($value):
+          $type = PDO::PARAM_NULL;
+          break;
+        default:
+          $type = PDO::PARAM_STR;
+          break;
+      }
+    }
+    $this->stmt->bindValue($param, $value, $type);
+  }
+  //Execute the prepared statement
+  public function execute()
+  {
+    return $this->stmt->execute();
   }
 
   //Return a set of data
-  public function dataSet($assocArr)
+  public function dataSet()
   {
-    $this->stmt->execute($assocArr);
+    $this->stmt->execute();
     return $this->stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
   //Single data
-  public function singleData($assocArr)
+  public function singleData()
   {
-    $this->stmt->execute($assocArr);
-    return $this->stmt->fetch(PDO::FETCH_OBJ);
-  }
-
-  //Get row count
-  public function rowCount()
-  {
+    $this->stmt->execute();
     return $this->stmt->fetch(PDO::FETCH_OBJ);
   }
 }

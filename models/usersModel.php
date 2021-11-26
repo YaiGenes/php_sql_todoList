@@ -9,32 +9,33 @@ class User
   {
     $this->db = new Database;
   }
-
+  //!Fusionate checkUser and Login to reduce code repetition
   //Check user in the database
   public function checkUser($password, $name)
   {
-    $this->db->query("SELECT id, username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");
-    $this->db->singleData([
-      'username' => $name,
-      'pwd' => $password
-    ]);
-
-    //Check row
-    if ($this->db->rowCount() > 0) {
-      return true;
-    } else {
-      return false;
+    try {
+      $this->db->query("SELECT COUNT(*) FROM user WHERE username=:username AND pwd=:pwd");
+      $this->db->bind(':username', $name);
+      $this->db->bind(':pwd', $password);
+      // $user = $this->db->singleData([
+      //   'username' => $name,
+      //   'pwd' => $password
+      // ]);
+      $user = $this->db->singleData();
+      return $user;
+    } catch (PDOException $errorMsg) {
+      $this->db->error = $errorMsg->getMessage();
+      require_once(VIEWS . '/error/error.php');
     }
   }
 
   public function register($fullName, $email, $password)
   {
     $this->db->query("INSERT INTO user(username, email, pwd) VALUES (:username, :email, :pwd)");
-    if ($this->db->execution([
-      'username' => $fullName,
-      'email' => $email,
-      'pwd' => $password
-    ])) {
+    $this->db->bind(':username', $fullName);
+    $this->db->bind(':email', $email);
+    $this->db->bind(':pwd', $password);
+    if ($this->db->singleData()) {
       return true;
     } else {
       return false;
@@ -43,22 +44,24 @@ class User
 
   public function login($fullName, $password)
   {
-
-    if ($this->checkUser($fullName, $password)) {
-      return true;
-    }
+    $this->db->query("SELECT COUNT(*) FROM user WHERE username=:username AND pwd=:pwd");
+    $this->db->bind(':username', $fullName);
+    $this->db->bind(':pwd', $password);
+    $user = $this->db->singleData();
+    // if ($this->checkUser($fullName, $password)) {
+    //   return true;
+    // }
+    return $user;
   }
 
   public function getUserId($fullName, $password)
   {
-    if ($this->checkUser($fullName, $password)) {
-      $this->db->query("SELECT id, username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");
-      $row = $this->db->singleData([
-        'username' => $fullName,
-        'pwd' => $password
-      ]);
-      $userId = $row['id'];
-      return $userId;
-    }
+    $this->db->query("SELECT id, username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");
+    $row = $this->db->singleData([
+      'username' => $fullName,
+      'pwd' => $password
+    ]);
+    $userId = $row['id'];
+    return $userId;
   }
 }

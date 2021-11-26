@@ -40,14 +40,17 @@ class Users
     $this->userModel = new User;
   }
 
+  //!TO REFACTORIZE----To store in a method the repeated code inside register and login to reduce code repetition
+
   public function register($fullName, $email, $password)
   {
-    if ($this->userModel->checkUser($fullName, $password)) {
+    $user = get_object_vars($this->userModel->login($fullName, $password));
+    $user['COUNT(*)'];
+    if ($user['COUNT(*)'] == 1) {
       $_SESSION["info"] = "The username or email already exist";
       require_once VIEWS . "signUpView.php";
-    }
-
-    if ($this->userModel->register($fullName, $email, $password)) {
+    } else {
+      $this->userModel->register($fullName, $email, $password);
       $_SESSION["info"] = "SignUp process succeful";
       $_SESSION["username"] = "$fullName";
       require_once VIEWS . "loginView.php";;
@@ -56,10 +59,12 @@ class Users
 
   public function login($fullName, $password)
   {
-    if (!$this->userModel->login($fullName, $password)) {
+    $user = get_object_vars($this->userModel->login($fullName, $password));
+    $user['COUNT(*)'];
+    if ($user['COUNT(*)'] == 1) {
       $_SESSION["username"] = "$fullName";
-      $fetchUser = $this->userModel->getUserId($fullName, $password);
-      $_SESSION["userId"] = $fetchUser;
+      // $fetchUser = $this->userModel->getUserId($fullName, $password);
+      // $_SESSION["userId"] = $fetchUser;
       header("Location: index.php?controller=fetchTask&action=getUserTodos");
     } else {
       $_SESSION["info"] = "You are not registered, please SignUp";
