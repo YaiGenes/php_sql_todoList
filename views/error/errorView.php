@@ -10,8 +10,8 @@
 
 <body>
   <?php
-      echo "<h1>". $errorMsg ."</h1>"
-    ?>
+  echo "<h1>" . $this->errorMsg . "</h1>"
+  ?>
 </body>
 
 </html>
