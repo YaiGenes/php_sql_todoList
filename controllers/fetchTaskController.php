@@ -2,25 +2,23 @@
 require_once MODELS . "fetchTaskModel.php";
 session_start();
 
-$username = $_SESSION["username"];
 
 // $userId = $fetchAllQuery[0]["id"];
 // $_SESSION["userId"] = $userId;
 
-if (isset($_GET["action"])) {
-  $action = $_GET["action"];
-  call_user_func($action, $username);
-} else {
-  error("The function that you are trying to call does not exist");
-}
-
-function getUserTodos($username)
+class fetchTask extends Controller
 {
-  $todos = get($username);
-  require_once(VIEWS . "todosView.php");
-}
+  public function __construct()
+  {
+    parent::__construct();
+  }
 
-function error($errorMsg)
-{
-  require_once VIEWS . "error\\errorView.php";
+  public function getUserTodos()
+  {
+    $username = $_SESSION["username"];
+    $todos = $this->model->get($username);
+    //here we send the data to the view througth the todos variable
+    $this->view->todos = $todos;
+    $this->view->render('todos');
+  }
 }

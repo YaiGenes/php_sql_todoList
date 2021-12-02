@@ -1,7 +1,6 @@
 <?php
-  $info = $_SESSION["info"];
-  $username = $_SESSION["username"];
-
+$info = $_SESSION["info"];
+$username = $_SESSION["username"];
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Authors Panel</title>
-  <link rel="stylesheet" href="css/panel.css">
+  <link rel="stylesheet" href="../css/panel.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -22,33 +21,33 @@
   <div class="container">
     <nav>
       <div>
-        <?=$info?>
+        <?= $info ?>
       </div>
-      <h2>Welcome to your todoWall <?=$username?>!</h2>
-      <a class="logout" href="index.php?controller=logout&action=logout"><img width="25px" src="assets/svg/logout.svg"
-          alt="logout"></a>
+      <h2>Welcome to your todoWall <?= $username ?>!</h2>
+      <a class="logout" href="index.php?controller=logout&action=logout"><img width="25px"
+          src="../assets/svg/logout.svg" alt="logout"></a>
     </nav>
     <h3>ToDos</h3>
     <div class="todo-list">
-      <?php if(!empty($todos)):?>
+      <?php if (!empty($this->todos)) : ?>
       <ul class="todos">
-        <?php foreach ($todos as $todo): ?>
+        <?php foreach ($this->todos as $todo) : ?>
         <li class="task">
           <div class="flex">
-            <span class="todo<?php echo $todo['isdone'] ? ' done' : ''?>"><?= $todo["title"];?></span>
+            <span class="todo<?php echo $todo['isdone'] ? ' done' : '' ?>"><?= $todo["title"]; ?></span>
             <div class="functions-container">
-              <?php if(!$todo["isdone"]): ?>
-              <a class="done-btn" href="index.php?controller=done&action=markAsDone&todo=<?=$todo['id'];?>"><img
-                  src="assets/svg/check.svg" width="10px" alt="done"></a>
+              <?php if (!$todo["isdone"]) : ?>
+              <a class="done-btn" href="index.php?controller=done&action=markAsDone&todo=<?= $todo['id']; ?>"><img
+                  src="../assets/svg/check.svg" width="10px" alt="done"></a>
               <?php endif; ?>
-              <a class="delete-btn" href="index.php?controller=delete&action=delete&id=<?=$todo['id'];?>"><img
-                  src="assets/svg/trash.svg" width="10px" alt="delete"></a>
-              <a class="edit-btn" href="index.php?controller=preEdit&action=pEdit&id=<?=$todo['id'];?>"><img
-                  src="assets/svg/edit.svg" width="10px" alt="edit"></a>
+              <a class="delete-btn" href="index.php?controller=delete&action=delete&id=<?= $todo['id']; ?>"><img
+                  src="../assets/svg/trash.svg" width="10px" alt="delete"></a>
+              <a class="edit-btn" href="index.php?controller=preEdit&action=pEdit&id=<?= $todo['id']; ?>"><img
+                  src="../assets/svg/edit.svg" width="10px" alt="edit"></a>
             </div>
           </div>
-          <?php if($todo["isedit"]): ?>
-          <form class="edit-form" method="POST" action="index.php?controller=edit&action=edit&id=<?=$todo['id'];?>">
+          <?php if ($todo["isedit"]) : ?>
+          <form class="edit-form" method="POST" action="index.php?controller=edit&action=edit&id=<?= $todo['id']; ?>">
             <input type="text" name="title" placeholder="Editing...">
             <input class="btn" type="submit" name="edit" value="Edit">
           </form>
@@ -56,9 +55,9 @@
         </li>
         <?php endforeach; ?>
       </ul>
-      <?php else: ?>
+      <?php else : ?>
       <p>You dont have any todo!</p>
-      <?php endif;?>
+      <?php endif; ?>
     </div>
     <form method="POST" action="index.php?controller=addTask&action=addTask">
       <input type="text" name="title" placeholder="Cook rice with mangoes">

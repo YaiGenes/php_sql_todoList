@@ -23,6 +23,7 @@ class App
       require_once $controllerFile;
       $controller = new $classController;
       $controller->loadModel($url[0]);
+      $controller->render();
       if (isset($url[1])) {
         $controller->{$url[1]}();
       }

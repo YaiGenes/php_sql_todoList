@@ -7,30 +7,6 @@ session_start();
 $_SESSION["info"] = "";
 $_SESSION["username"] = "";
 
-// if (isset($_POST["email"])) {
-//   $email = $_POST["email"];
-// } else {
-//   $email = '';
-// }
-// if (isset($_POST["fullName"])) {
-//   $fullName = $_POST["fullName"];
-// } else {
-//   $fullName = '';
-// }
-// if (isset($_POST["password"])) {
-//   $password = $_POST["password"];
-// } else {
-//   $password = '';
-// }
-
-
-// if (isset($_GET["action"])) {
-//   $action = $_GET["action"];
-//   call_user_func($action, $fullName, $email, $password);
-// } else {
-//   echo "The function that you are trying to call does not exist";
-// }
-
 class Users extends Controller
 {
   public function __construct()
@@ -85,5 +61,28 @@ class Users extends Controller
   public function SignUpView()
   {
     $this->view->render("signUp");
+  }
+
+  public function logout()
+  {
+    session_start();
+    unset($_SESSION);
+
+    if (ini_get("session.use_cookies")) {
+      $params = session_get_cookie_params();
+      setcookie(
+        session_name(),
+        '',
+        time() - 42000,
+        $params["path"],
+        $params["domain"],
+        $params["secure"],
+        $params["httponly"]
+      );
+    }
+
+    session_destroy();
+
+    $this->view->render();
   }
 }
