@@ -65,7 +65,6 @@ class Users extends Controller
 
   public function logout()
   {
-    session_start();
     unset($_SESSION);
 
     if (ini_get("session.use_cookies")) {
@@ -83,6 +82,6 @@ class Users extends Controller
 
     session_destroy();
 
-    $this->view->render();
+    $this->view->render('main\\main');
   }
 }

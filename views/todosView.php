@@ -24,7 +24,7 @@ $username = $_SESSION["username"];
         <?= $info ?>
       </div>
       <h2>Welcome to your todoWall <?= $username ?>!</h2>
-      <a class="logout" href="index.php?controller=logout&action=logout"><img width="25px"
+      <a class="logout" href="<?php echo BASE_URL . '\users\\logout' ?>"><img width="25px"
           src="../assets/svg/logout.svg" alt="logout"></a>
     </nav>
     <h3>ToDos</h3>
