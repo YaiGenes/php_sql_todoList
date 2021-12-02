@@ -22,5 +22,5 @@ function getUserTodos($username)
 
 function error($errorMsg)
 {
-  require_once VIEWS . "error/error.php";
+  require_once VIEWS . "error\\errorView.php";
 }

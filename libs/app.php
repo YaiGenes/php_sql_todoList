@@ -13,6 +13,7 @@ class App
       $controllerFile = CONTROLLERS . 'mainController.php';
       require_once $controllerFile;
       $controller = new Main;
+      $controller->loadModel('main');
     } else {
       $classController = ucfirst($url[0]);
       $controllerFile = CONTROLLERS . $classController . 'Controller.php';
@@ -21,6 +22,7 @@ class App
     if (file_exists($controllerFile)) {
       require_once $controllerFile;
       $controller = new $classController;
+      $controller->loadModel($url[0]);
       if (isset($url[1])) {
         $controller->{$url[1]}();
       }

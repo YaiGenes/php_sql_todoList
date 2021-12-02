@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="../css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -23,11 +23,11 @@
           <h2>Login</h2>
         </div>
         <div>
-          <a href="index.php?controller=users&action=loginSystem&type=login">SignUp</a>
+          <a href="<?php echo BASE_URL . '\users\\SignUpView' ?>">SignUp</a>
         </div>
       </menu>
     </nav>
-    <form action="index.php?controller=users&action=loginSystem" method="POST">
+    <form action="<?php echo BASE_URL . '\users\\login' ?>" method="POST">
       <input type="hidden" name="type" value="login">
       <label for="fullName">Full Name</label>
       <br>

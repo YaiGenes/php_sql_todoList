@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("config/baseConstants.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +26,10 @@ session_start();
       </div>
       <div>
         <ul>
-          <li><a href="index.php?controller=login&action=loginUser"><img width="25px" src="assets/svg/login.svg"
-                alt="login"></a></li>
-          <li><a href="index.php?controller=signUp&action=loginSignUp"><img width="25px" src="assets/svg/signup.svg"
+          <li><a href="<?php echo BASE_URL . '\users\\loginView' ?>"><img width="25px" src="assets/svg/login.svg"
+                alt="login"></a>
+          </li>
+          <li><a href="<?php echo BASE_URL . '\users\\SignUpView' ?>"><img width="25px" src="assets/svg/signup.svg"
                 alt="signup"></a></li>
         </ul>
       </div>

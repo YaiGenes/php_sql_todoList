@@ -1,7 +1,7 @@
 <?php
 require_once CONTROLLERS . 'helpers/dbConnection.php';
 
-class User
+class usersModel
 {
   private $db;
 
@@ -57,10 +57,12 @@ class User
   public function getUserId($fullName, $password)
   {
     $this->db->query("SELECT id, username, pwd, email FROM user WHERE username=:username AND pwd=:pwd");
-    $row = $this->db->singleData([
-      'username' => $fullName,
-      'pwd' => $password
-    ]);
+    $this->db->bind(':username', $fullName);
+    $this->db->bind(
+      ':pwd',
+      $password
+    );
+    $row = $this->db->execute();
     $userId = $row['id'];
     return $userId;
   }
